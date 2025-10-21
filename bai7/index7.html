@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai7</title>
+</head>
+
+<body>
+    <input type="text" placeholder="nhap so" id="inputNumber">
+    <button onclick="kiemTra()">Kiem tra</button>
+    <p id="ketqua"></p><br>
+    <h2>Giới thiệu</h2>
+    <p id="profile"></p>
+
+    <h3>Kiểm tra tuổi</h3>
+    <p id="tuoi"></p>
+    <script>
+        function kiemTra() {
+            let input = document.getElementById('inputNumber').value;
+            let scores = input.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n))
+
+            let max = Math.max(...scores);
+            let min = Math.min(...scores);
+            let sum = 0;
+            for (let i = 0; i < scores.length; i++) {
+                sum += scores[i]
+            }
+
+            let avg = sum / scores.length;
+
+            document.getElementById('ketqua').innerHTML = max + ' ' + min + ' ' + avg
+        }
+    </script>
+        <script src="main7.js"></script>
+
+</body>
+
+</html>

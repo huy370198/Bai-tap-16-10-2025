@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai 2</title>
+    
+</head>
+
+<body>
+    <h3>kiem tra tuoi</h3>
+    <input type="number" placeholder="nhap so" id="inputage">
+    <button onclick="kiemTra()">Kiem tra</button>
+    <p id="ketqua"></p><br>
+    <h3>KIEM TRA SO CHAN HAY NE</h3>
+    <input type="number" placeholder="nhap vao 1 so..." id="inputnumber">
+    <button onclick="check()">check</button>
+    <p id="getNum"></p>
+    <br>
+    <h3>
+        Kiem tra nam nhuan
+    </h3>
+    <input type="number" placeholder="nhap nam can kiem tra..." id="inputnam">
+    <button onclick="checknam()">Kiem Tra</button>
+    <p id="kqNam"></p>
+    <br>
+    <h3>tim so lon so be</h3>
+    <input type="text" placeholder="nhap 3 so cach nhau bang dau ," id="inputNumbers">
+    <p id="ketquaminmax"></p>
+    <button onclick="kiemtraso()">check</button>
+
+    <script>
+        function kiemTra() {
+            let age = document.getElementById('inputage').value;
+            if (age < 18) {
+                document.getElementById('ketqua').innerHTML = 'ban la tre con';
+            } else if (age >= 18 && age <= 39) {
+                document.getElementById('ketqua').innerHTML = 'ban la thanh nien';
+            } else {
+                document.getElementById('ketqua').innerHTML = 'ban la nguoi gia';
+            }
+        }
+    </script>
+    <script>
+        function check() {
+            let x = document.getElementById('inputnumber').value;
+
+            if (x % 2 === 0) {
+                document.getElementById('getNum').innerHTML = 'day la so chan' + x;
+            } else {
+                document.getElementById('getNum').innerHTML = 'day la so le' + x
+            }
+        }
+    </script>
+    <script>
+        for (let i = 0; i < 5; i++) {
+            console.log(i)
+        }
+    </script>
+    <script>
+        function checknam() {
+            let nam = document.getElementById('inputnam').value;
+            if ((nam % 4 === 0 && nam % 100 !== 0) || (nam % 400 === 0)) {
+                document.getElementById('kqNam').innerHTML = 'day la nam nhuan' + nam;
+            } else {
+                document.getElementById('kqNam').innerHTML = 'day khong la nam nhuan' + nam
+            }
+        }
+    </script>
+    <script>
+        function kiemtraso() {
+            const input = document.getElementById('inputNumbers').value;
+            const arr = input.split(',').map(x => parseFloat(x.trim()));
+            if (arr[0] > arr[1]) {
+                if (arr[0] > arr[2] && arr[2] > arr[1]) {
+                    document.getElementById('ketquaminmax').innerHTML = 'max = ' + arr[0] + 'min=' + arr[1];
+                } else {
+                    document.getElementById('ketquaminmax').innerHTML = 'max=' + arr[0] + 'min= ' + arr[2];
+                }
+            } else if (arr[1] > arr[2]) {
+
+                if (arr[2] < arr[0]) {
+                    document.getElementById('ketquaminmax').innerHTML = 'max=' + arr[1] + 'mix=' + arr[2];
+                }else{
+                    document.getElementById('ketquaminmax').innerHTML = 'max=' + arr[1] + 'min' + arr[0];
+                }
+            } else {
+                document.getElementById('ketquaminmax').innerHTML = 'max=' + arr[2] + 'min' + arr[0];
+            }
+        }
+    </script>
+
+</body>
+
+</html>

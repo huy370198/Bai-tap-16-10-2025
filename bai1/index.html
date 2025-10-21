@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="main.js"></script>
+    <input type="number" placeholder="so thu 1" id="numberOne" oninput="calculator()">
+    <input type="number" placeholder="so thu 2" id="numbertwo" oninput="calculator()">
+    <button onclick="myFunction()">Ket qua</button>
+    <p id="tong"></p>
+    <p id="hieu"></p>
+    <p id="thuong"></p>
+    <h3>
+        ép chuỗi sang số
+    </h3>
+    <input type="string" placeholder="nhap chuỗi số" id="inputNumber">
+    <button onclick="getNumber()">Convert</button>
+    <p id="dadoi"></p>
+    <br>
+    <h3>
+        tinh chu vi dien tich
+    </h3>
+    <input type="number" placeholder="nhap ban kinh" id="radius">
+    <button onclick="sC()">Ket qua</button>
+    <p id="getS"></p>
+    <p id="getC"></p>
+
+    <script>
+       var myFunction = function calculator(){
+            let a = document.getElementById("numberOne").value;
+            let b = document.getElementById("numbertwo").value;
+            a = Number(a);
+            b = Number(b);
+            //tong la
+        let    cong = a+b;
+            
+        let    tru = a-b;
+
+        let    chia = a/b;
+
+            document.getElementById("tong").innerHTML = "tong la" + ":" + cong;
+            document.getElementById("hieu").innerHTML = "hieu la" + ":" + tru;
+            document.getElementById("thuong").innerHTML = "thuong la" + ":" + chia;
+        }
+    </script>
+    <script>
+        function getNumber(){
+            let number = document.getElementById("inputNumber").value;
+            number = Number(number);
+            document.getElementById("dadoi").innerHTML = "Số đổi là : " + number
+            console.log(typeof number)
+        }
+    </script>
+    <script>
+        function sC(){
+            let radius = document.getElementById("radius").value;
+
+            let s = radius * radius * 3.14;
+
+            let c = radius * 3.14 * 2;
+
+            document.getElementById("getS").innerHTML = "S=" + s
+            document.getElementById("getC").innerHTML = "c=" + c
+
+        }
+    </script>
+</body>
+</html>

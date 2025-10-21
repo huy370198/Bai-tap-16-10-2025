@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAI 3</title>
+</head>
+<h3>Tinh Gia Thua cua 1 so</h3>
+<input type="number" placeholder="nhap 1 so tu nhien" id="inputNumber">
+<button onclick="tinhtoan()">Ket qua</button>
+<p id="ketqua"></p>
+<br>
+<h3>
+    Tinh Tong Chu So
+</h3>
+<input type="number" id="nnumber">
+<button onclick="tinhTongChuSo()">Ket qua</button>
+<p id="tongKq"></p><br>
+<h3>Kiem Tra So Nguyen to</h3>
+<input type="number" placeholder="nhap 1 so tu nhien" id="inputSNT">
+<button onclick="isPrime()">Ket qua</button>
+<p id="ketquaSNT"></p>
+
+
+<body>
+    <script>
+        let total = 0;
+        for (let i = 0; i <= 100; i++) {
+            console.log(i);
+            total += i;
+        }
+        console.log(total)
+
+    </script>
+    <script>
+        for (let i = 0; i <= 100; i++) {
+            if (i % 2 === 0) {
+                console.log(i)
+            }
+        }
+    </script>
+    <script>
+        function tinhtoan() {
+            let n = document.getElementById('inputNumber').value;
+            let result = 1;
+            for (i = 1; i <= n; i++) {
+                result *= i
+            }
+            document.getElementById('ketqua').innerHTML = result
+        }
+    </script>
+    <script>
+        for (let i = 1; i <= 10; i++) {
+            console.log(i)
+            for (let j = 1; j <= 10; j++) {
+                console.log(i * j)
+            }
+
+        }
+    </script>
+    <script>
+        function tinhTongChuSo() {
+            let n = document.getElementById('nnumber').value;
+            let sum = 0;
+            let total = 0;
+            while (n > 0) {
+                sum += n % 10;
+                n = Math.floor(n / 10);
+                total++
+            }
+            document.getElementById('tongKq').innerHTML = sum + 'tong so la:' + total;
+
+        }
+    </script>
+    <script>
+        function isPrime() {
+            let n = Number(document.getElementById('inputSNT').value);
+            if (n <= 1) {
+                document.getElementById('ketquaSNT').innerHTML = 'khong la so nt';
+                return;
+            }
+            if (n === 2) {
+                document.getElementById('ketquaSNT').innerHTML = n + 'la so nt';
+                return;
+            }
+
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    document.getElementById('ketquaSNT').innerHTML = 'sai';
+                    return;
+                }
+                
+            }
+            document.getElementById('ketquaSNT').innerHTML = 'sai';
+
+        }
+    </script>
+</body>
+
+</html>
